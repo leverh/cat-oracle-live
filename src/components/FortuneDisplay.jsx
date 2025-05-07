@@ -5,10 +5,12 @@ export default function FortuneDisplay({ fortune, visible = true }) {
   if (!fortune || !visible) return null;
   
   return (
-    <div className={styles.fortune}>
-      <span className={styles.fortuneQuoteLeft}></span>
-      {fortune}
-      <span className={styles.fortuneQuoteRight}></span>
+    <div className={styles.fortuneContainer}>
+      <div className={styles.fortune}>
+        <span className={styles.fortuneQuoteLeft}></span>
+        {fortune}
+        <span className={styles.fortuneQuoteRight}></span>
+      </div>
     </div>
   );
 }
