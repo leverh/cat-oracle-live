@@ -20,10 +20,8 @@ export default function CursorEffect() {
     };
 
     const handleMouseMove = (e) => {
-      // Create stars around cursor
       createStar(e.clientX - 5, e.clientY - 5);
       
-      // Randomly create smaller sparkles
       if (Math.random() < 0.3) {
         createStar(e.clientX + (Math.random() - 0.5) * 20, 
                   e.clientY + (Math.random() - 0.5) * 20);
@@ -32,7 +30,6 @@ export default function CursorEffect() {
 
     document.addEventListener('mousemove', handleMouseMove);
     
-    // Cleanup
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
       stars.forEach(star => star.remove());

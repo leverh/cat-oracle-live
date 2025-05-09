@@ -1,0 +1,143 @@
+.container {
+    position: relative;
+    margin: 3rem 0;
+    z-index: 2;
+    width: 100%;
+    max-width: 35rem;
+  }
+  
+  .image {
+    width: 100%;
+    border-radius: 2rem;
+    border: 3px solid var(--primary);
+    box-shadow: 0 0 30px rgba(138, 79, 255, 0.5);
+    transition: all 0.5s ease-in-out;
+    transform-origin: center;
+    position: relative;
+    z-index: 1;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+  }
+  
+  .image:hover {
+    box-shadow: 0 0 50px rgba(138, 79, 255, 0.8);
+    transform: scale(1.02);
+  }
+  
+  .imageFrame {
+    position: relative;
+    border-radius: 2rem;
+    overflow: hidden;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .imageFrame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    border-radius: 2rem;
+    border: 2px solid transparent;
+    background: linear-gradient(45deg, var(--primary-light), var(--secondary)) border-box;
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) padding-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+  
+  .imageFrame::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 2.2rem;
+    padding: 2px;
+    background: linear-gradient(45deg, var(--primary), transparent, var(--secondary));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  
+  .auraGlow {
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    top: -5%;
+    left: -5%;
+    background: radial-gradient(circle, rgba(138, 79, 255, 0.4) 0%, rgba(138, 79, 255, 0) 70%);
+    z-index: 0;
+    border-radius: 50%;
+    animation: pulseAura 5s ease-in-out infinite;
+  }
+  
+  /* Cat Animation States */
+  .thinking {
+    animation: thinking 1.5s ease-in-out;
+  }
+  
+  .revealing {
+    animation: revealing 1.2s ease-in-out;
+  }
+  
+  .catnip {
+    animation: catnip 1s ease-in-out;
+  }
+  
+  .revealing + .auraGlow {
+    background: radial-gradient(circle, rgba(255, 107, 151, 0.5) 0%, rgba(138, 79, 255, 0.3) 40%, rgba(138, 79, 255, 0) 70%);
+    animation: expandAura 1.2s ease-in-out;
+  }
+  
+  .catnip + .auraGlow {
+    background: radial-gradient(circle, rgba(67, 255, 221, 0.5) 0%, rgba(138, 79, 255, 0.2) 50%, rgba(138, 79, 255, 0) 70%);
+    animation: catnipAura 1s ease-in-out;
+  }
+  
+  @keyframes pulseAura {
+    0% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.05); }
+    100% { opacity: 0.5; transform: scale(1); }
+  }
+  
+  @keyframes thinking {
+    0% { transform: translateY(0) scale(1); filter: brightness(1); }
+    50% { transform: translateY(-10px) scale(1.02); filter: brightness(1.1); }
+    100% { transform: translateY(0) scale(1); filter: brightness(1); }
+  }
+  
+  @keyframes revealing {
+    0% { transform: scale(1); box-shadow: 0 0 30px rgba(138, 79, 255, 0.5); }
+    40% { transform: scale(1.05); box-shadow: 0 0 60px rgba(255, 107, 151, 0.8), 0 0 120px rgba(138, 79, 255, 0.4); }
+    100% { transform: scale(1); box-shadow: 0 0 30px rgba(138, 79, 255, 0.5); }
+  }
+  
+  @keyframes catnip {
+    0% { transform: rotate(0deg) scale(1); filter: hue-rotate(0deg); }
+    25% { transform: rotate(-2deg) scale(1.03); filter: hue-rotate(15deg) brightness(1.1); }
+    50% { transform: rotate(3deg) scale(1.05); filter: hue-rotate(30deg) brightness(1.2); }
+    75% { transform: rotate(-2deg) scale(1.03); filter: hue-rotate(15deg) brightness(1.1); }
+    100% { transform: rotate(0deg) scale(1); filter: hue-rotate(0deg); }
+  }
+  
+  @keyframes expandAura {
+    0% { opacity: 0.3; transform: scale(0.9); }
+    50% { opacity: 0.8; transform: scale(1.2); }
+    100% { opacity: 0.5; transform: scale(1); }
+  }
+  
+  @keyframes catnipAura {
+    0% { opacity: 0.3; transform: scale(1) rotate(0deg); }
+    50% { opacity: 0.8; transform: scale(1.1) rotate(180deg); }
+    100% { opacity: 0.5; transform: scale(1) rotate(360deg); }
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .container {
+      max-width: 28rem;
+      margin: 2rem 0;
+    }
+  }

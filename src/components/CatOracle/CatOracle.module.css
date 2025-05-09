@@ -1,0 +1,133 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 120rem;
+    padding: 3rem 2rem;
+    gap: 2.5rem;
+    position: relative;
+    margin: 0 auto;
+  }
+  
+  .oracleHeader {
+    text-align: center;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .oracleTitle {
+    font-size: 4rem;
+    color: var(--primary-light);
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px var(--primary-dark);
+    font-weight: 800;
+  }
+  
+  .oracleSubtitle {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    max-width: 60rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .contentWrapper {
+    background: rgba(30, 29, 47, 0.3);
+    backdrop-filter: blur(5px);
+    border-radius: 2.5rem;
+    padding: 3rem;
+    border: 1px solid rgba(138, 79, 255, 0.1);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .contentWrapper::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(138, 79, 255, 0.1) 0%,
+      rgba(0, 0, 0, 0) 70%
+    );
+    z-index: -1;
+    pointer-events: none;
+  }
+  
+  .contentWrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(67, 255, 221, 0.05) 100%
+    );
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  .oracleFooter {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1.4rem;
+    color: var(--text-muted);
+    width: 100%;
+  }
+  
+  .poweredBy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 1rem;
+  }
+  
+  .poweredBy span {
+    color: var(--primary-light);
+    font-weight: 600;
+  }
+  
+  .footerIcon {
+    font-size: 1.8rem;
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .container {
+      padding: 2rem 1.5rem;
+      gap: 2rem;
+    }
+    
+    .oracleTitle {
+      font-size: 3rem;
+    }
+    
+    .oracleSubtitle {
+      font-size: 1.6rem;
+    }
+    
+    .contentWrapper {
+      padding: 2rem 1.5rem;
+    }
+  }

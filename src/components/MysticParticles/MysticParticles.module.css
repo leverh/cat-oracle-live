@@ -1,0 +1,180 @@
+.particlesContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  background: #fff;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  box-shadow: 0 0 5px var(--primary);
+  opacity: 0;
+  animation: float 8s ease infinite;
+}
+
+.particleMedium {
+  position: absolute;
+  background: #fff;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--primary-light);
+  opacity: 0;
+  animation: floatSideways 12s ease infinite;
+}
+
+.particleLarge {
+  position: absolute;
+  background: #fff;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--accent);
+  opacity: 0;
+  animation: pulse 5s ease infinite;
+}
+
+.particleDust {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.6);
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  opacity: 0;
+  animation: floatDiagonal 10s linear infinite;
+  box-shadow: 0 0 3px rgba(155, 123, 255, 0.4);
+}
+
+.particleStar {
+  position: absolute;
+  opacity: 0;
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+.particleStar::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent), 0 0 20px var(--primary-light);
+  transform: scale(1);
+  animation: pulseStar 4s ease-in-out infinite;
+}
+
+.particleStar::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: -10px;
+  left: -10px;
+  background: radial-gradient(circle, rgba(138, 79, 255, 0.4) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: scale(0);
+  animation: pulseStarGlow 4s ease-in-out infinite;
+}
+
+.comets {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.comet {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--primary-light), 0 0 20px var(--accent);
+  animation: cometMove 15s linear infinite;
+  opacity: 0;
+}
+
+.comet::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, #fff, transparent);
+  transform-origin: left;
+  transform: translateX(-100%);
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh) scale(0); opacity: 0; }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.8; }
+  100% { transform: translateY(-50px) scale(1); opacity: 0; }
+}
+
+@keyframes floatSideways {
+  0% { transform: translateX(-50px) translateY(100vh) scale(0); opacity: 0; }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.8; transform: translateY(30vh) translateX(30vw) scale(1); }
+  100% { transform: translateX(100vw) translateY(0) scale(0.5); opacity: 0; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1) translateY(100vh); opacity: 0; }
+  10% { opacity: 0.8; }
+  50% { transform: scale(1.5) translateY(50vh); opacity: 0.8; }
+  90% { opacity: 0.8; }
+  100% { transform: scale(1) translateY(0); opacity: 0; }
+}
+
+@keyframes floatDiagonal {
+  0% { transform: translate(-50px, 100vh) scale(0); opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.6; }
+  100% { transform: translate(50vw, -50px) scale(1); opacity: 0; }
+}
+
+@keyframes twinkle {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes pulseStar {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.5); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+@keyframes pulseStarGlow {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1); opacity: 0.4; }
+  100% { transform: scale(0); opacity: 0; }
+}
+
+@keyframes cometMove {
+  0% { 
+    transform: translate(calc(-2vw - 100px), calc(10vh + var(--offset-y) * 1vh)) rotate(15deg); 
+    opacity: 0;
+  }
+  5% { opacity: 1; }
+  95% { opacity: 1; }
+  100% { 
+    transform: translate(calc(100vw + 100px), calc(70vh + var(--offset-y) * 1vh)) rotate(15deg); 
+    opacity: 0;
+  }
+}

@@ -1,0 +1,129 @@
+.trustMeter {
+    background: rgba(30, 30, 47, 0.6);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    width: 100%;
+    max-width: 50rem;
+    margin: 0 auto;
+    z-index: 2;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .trustMeter:hover {
+    box-shadow: 0 8px 32px rgba(67, 255, 221, 0.1);
+    border-color: var(--accent-dark);
+  }
+  
+  .trustHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .trustLevel {
+    font-size: 1.8rem;
+    color: var(--text-light);
+    font-weight: 500;
+  }
+  
+  .trustValue {
+    font-size: 1.6rem;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  
+  .trustBar {
+    width: 100%;
+    height: 1.2rem;
+    background: rgba(30, 30, 47, 0.5);
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .trustProgress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-dark), var(--primary), var(--secondary));
+    background-size: 200% 200%;
+    animation: progressFlow 3s linear infinite;
+    transition: width 0.5s ease-out;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px rgba(138, 79, 255, 0.3);
+  }
+  
+  .trustProgress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: shine 2.5s infinite;
+  }
+  
+  .trustLevelText {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .trustLevelText strong {
+    display: inline-block;
+    color: var(--secondary);
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .trustLevelText strong::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-out;
+  }
+  
+  .trustMeter:hover .trustLevelText strong::after {
+    transform: scaleX(1);
+  }
+  
+  @keyframes progressFlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+  
+  @keyframes shine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(300%); }
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .trustMeter {
+      padding: 1.5rem;
+    }
+  
+    .trustLevel {
+      font-size: 1.6rem;
+    }
+  
+    .trustValue {
+      font-size: 1.4rem;
+    }
+  
+    .trustBar {
+      height: 1rem;
+    }
+  }

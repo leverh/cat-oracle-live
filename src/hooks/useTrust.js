@@ -1,20 +1,32 @@
 import { useState, useEffect } from 'react';
 
-const TRUST_KEY = 'catOracleTrustLevel';
-
-export function useTrust() {
-  const [trust, setTrust] = useState(() => {
-    const stored = localStorage.getItem(TRUST_KEY);
-    return stored ? parseInt(stored, 10) : 0;
-  });
+export const useTrust = () => {
+  const [trust, setTrust] = useState(10);
 
   useEffect(() => {
-    localStorage.setItem(TRUST_KEY, trust.toString());
+    const savedTrust = localStorage.getItem('catOracleTrust');
+    if (savedTrust) {
+      setTrust(parseInt(savedTrust, 10));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('catOracleTrust', trust.toString());
   }, [trust]);
 
-  const increaseTrust = (amount = 1) => {
-    setTrust((prev) => prev + amount);
+  const increaseTrust = () => {
+    setTrust(prevTrust => {
+      const increase = 2 + Math.floor(Math.random() * 4);
+      return Math.min(prevTrust + increase, 100);
+    });
   };
 
-  return { trust, increaseTrust };
-}
+  const decreaseTrust = () => {
+    setTrust(prevTrust => {
+      const decrease = 1 + Math.floor(Math.random() * 3);
+      return Math.max(prevTrust - decrease, 0);
+    });
+  };
+
+  return { trust, increaseTrust, decreaseTrust };
+};

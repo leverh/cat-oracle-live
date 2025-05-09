@@ -1,17 +1,22 @@
 import { useState, useEffect } from 'react';
 
-const CATNIP_KEY = 'catOracleCatnipMode';
-
-export function useCatnip() {
-  const [catnip, setCatnip] = useState(() => {
-    return localStorage.getItem(CATNIP_KEY) === 'true';
-  });
+export const useCatnip = () => {
+  const [catnip, setCatnip] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem(CATNIP_KEY, catnip.toString());
+    const savedCatnip = localStorage.getItem('catOracleCatnip');
+    if (savedCatnip === 'true') {
+      setCatnip(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('catOracleCatnip', catnip.toString());
   }, [catnip]);
 
-  const toggleCatnip = () => setCatnip((prev) => !prev);
+  const toggleCatnip = () => {
+    setCatnip(prevState => !prevState);
+  };
 
   return { catnip, toggleCatnip };
-}
+};

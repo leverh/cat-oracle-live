@@ -1,0 +1,33 @@
+.cursorStar {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, var(--primary) 40%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    animation: starFade 1s linear forwards;
+    box-shadow: 0 0 4px 2px rgba(110, 68, 255, 0.4);
+  }
+  
+  .cursorTrail {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: var(--primary);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform-origin: left center;
+    animation: shootingTrail 1s linear forwards;
+  }
+  
+  @keyframes starFade {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0); opacity: 0; }
+  }
+  
+  @keyframes shootingTrail {
+    0% { transform: scaleX(0) scaleY(1); opacity: 1; }
+    100% { transform: scaleX(1) scaleY(0); opacity: 0; }
+  }

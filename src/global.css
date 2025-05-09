@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Quicksand:wght@300..700&display=swap');
+
+:root {
+  /* Modern cosmic color palette */
+  --primary: #8A4FFF;         /* Vibrant purple */
+  --primary-dark: #6037B3;    /* Deeper purple */
+  --primary-light: #B08FFF;   /* Light purple */
+  --secondary: #FF6B97;       /* Cosmic pink */
+  --secondary-dark: #D64D78;  /* Deep rose */
+  --accent: #43FFDD;          /* Cosmic teal */
+  --accent-dark: #00D1B2;     /* Deep teal */
+  --background-dark: #12111A; /* Deep space black */
+  --background-medium: #1E1D2F; /* Night sky */
+  --background-light: #2E2D45; /* Cosmic dusk */
+  --text-light: #FFFFFF;       /* Pure white */
+  --text-muted: rgba(255, 255, 255, 0.7); /* Faded stars */
+  
+  /* Shadows */
+  --shadow-sm: 0 0 10px rgba(138, 79, 255, 0.3);
+  --shadow-md: 0 0 20px rgba(138, 79, 255, 0.4);
+  --shadow-lg: 0 0 30px rgba(138, 79, 255, 0.5);
+  --shadow-xl: 0 0 40px rgba(138, 79, 255, 0.7);
+  
+  /* Glass effect */
+  --glass-background: rgba(30, 29, 47, 0.7);
+  --glass-border: rgba(138, 79, 255, 0.3);
+  --glass-blur: 10px;
+
+  /* Fonts */
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Quicksand', sans-serif;
+}
+
+/* Base styles */
+html {
+  font-size: 10px;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background: radial-gradient(ellipse at top, var(--background-medium) 0%, var(--background-dark) 75%), 
+              radial-gradient(ellipse at bottom, var(--primary-dark) 0%, var(--background-dark) 75%);
+  background-attachment: fixed;
+  color: var(--text-light);
+  min-height: 100vh;
+  overflow-x: hidden;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='6' fill='none' stroke='%238A4FFF' stroke-width='2'/%3E%3Ccircle cx='10' cy='10' r='3' fill='%238A4FFF'/%3E%3C/svg%3E") 10 10, auto;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+button, input[type="text"], a {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M2 2 L8 18 L11 11 L18 8 Z' fill='%238A4FFF' stroke='%23fff' stroke-width='1'/%3E%3C/svg%3E") 10 10, pointer;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+/* Utility classes */
+.mystic-container {
+  text-align: center;
+  padding: 4rem 2rem;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.cosmic-glass {
+  background: var(--glass-background);
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+}
+
+.cosmic-glass:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-light);
+}
+
+.cosmic-title {
+  color: var(--secondary);
+  font-size: 3rem;
+  text-shadow: 0 0 10px var(--secondary-dark);
+  letter-spacing: 1px;
+}
+
+.cosmic-subtitle {
+  color: var(--accent);
+  font-size: 2rem;
+  text-shadow: 0 0 8px var(--accent-dark);
+  letter-spacing: 0.5px;
+}
+
+.btn {
+  border: none;
+  border-radius: 1.5rem;
+  transition: all 0.3s ease;
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  padding: 1.5rem 4rem;
+  font-size: 1.8rem;
+  box-shadow: 0 4px 15px rgba(138, 79, 255, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-xl);
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark) 70%);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.btn-primary:hover::after {
+  left: 100%;
+}
+
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.shine-effect:hover::after {
+  left: 100%;
+}
+
+/* Animations */
+@keyframes backgroundShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes glow {
+  0% { box-shadow: var(--shadow-md); }
+  50% { box-shadow: var(--shadow-xl); }
+  100% { box-shadow: var(--shadow-md); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .btn-primary {
+    font-size: 1.6rem;
+    padding: 1.2rem 3rem;
+  }
+  
+  .mystic-container {
+    padding: 3rem 1.5rem;
+  }
+  
+  .cosmic-title {
+    font-size: 2.4rem;
+  }
+  
+  .cosmic-subtitle {
+    font-size: 1.6rem;
+  }
+}
