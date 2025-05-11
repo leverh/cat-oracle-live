@@ -26,7 +26,7 @@ const IntroOverlay = ({ onClose }) => {
         <div className={styles.examples}>
           <h3 className={styles.examplesTitle}>Ask the Oracle about...</h3>
           <div className={styles.examplesList}>
-            <div className={styles.example}>Will I find love this year?</div>
+            <div className={styles.example}>Will I find fortune this year?</div>
             <div className={styles.example}>Should I change my career path?</div>
             <div className={styles.example}>What does my future hold?</div>
             <div className={styles.example}>Will my creative projects succeed?</div>

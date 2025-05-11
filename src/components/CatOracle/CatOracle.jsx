@@ -14,22 +14,37 @@ import Footer from '../Footer/Footer';
 import { fortunes, catnipFortunes } from '../../data/fortunes';
 
 // Importing cat images
-import catSitting from '../../assets/images/cat-poses/cat-sitting.jpg';
-import catWise from '../../assets/images/cat-poses/cat-wise.jpg';
-import catPlayful from '../../assets/images/cat-poses/cat-playful.jpg';
-import catSleepy from '../../assets/images/cat-poses/cat-sleepy.jpg';
-import catMysterious from '../../assets/images/cat-poses/cat-mysterious.jpg';
-import catCatnip1 from '../../assets/images/cat-poses/cat-catnip1.jpg';
-import catCatnip2 from '../../assets/images/cat-poses/cat-catnip2.jpg';
-import fallbackCat from '../../assets/images/fallback-cat.jpg';
+import chanel1 from '../../assets/images/cat-poses/chanel1.webp';
+import chanel2 from '../../assets/images/cat-poses/chanel2.webp';
+import chanel3 from '../../assets/images/cat-poses/chanel3.webp';
+import chanel5 from '../../assets/images/cat-poses/chanel5.webp';
+import chanel6 from '../../assets/images/cat-poses/chanel6.webp';
+import chanel7 from '../../assets/images/cat-poses/chanel7.webp';
+import chanel8 from '../../assets/images/cat-poses/chanel8.webp';
+import chanel9 from '../../assets/images/cat-poses/chanel9.webp';
+import chanel10 from '../../assets/images/cat-poses/chanel10.webp';
+import chanel11 from '../../assets/images/cat-poses/chanel11.webp';
+import chanel12 from '../../assets/images/cat-poses/chanel12.webp';
+
+
+import catCatnip1 from '../../assets/images/cat-poses/chanel14.webp';
+import catCatnip2 from '../../assets/images/cat-poses/chanel18.webp';
+
+import fallbackCat from '../../assets/images/cat-poses/chanel19.webp';
 
 const CatOracle = ({ portfolioSiteUrl = "https://pixelsummit.dev/" }) => {
   const regularCatImages = [
-    catSitting,
-    catWise,
-    catPlayful,
-    catSleepy,
-    catMysterious,
+    chanel1,
+    chanel2,
+    chanel3,
+    chanel5,
+    chanel6,
+    chanel7,
+    chanel8,
+    chanel9,
+    chanel10,
+    chanel11,
+    chanel12,
   ];
 
   const specialCatnipImages = [
